@@ -1,0 +1,13 @@
+---
+- name: Write incus_token and incus_ip to a file
+  hosts: localhost
+  gather_facts: no
+  become: yes
+  
+  tasks:
+    - name: Create a file with incus_token and incus_ip
+      copy:
+        dest: /root/incus_info.txt
+        content: |
+          incus_token: {{ incus_token }}
+          incus_ip: {{ incus_ip }}
